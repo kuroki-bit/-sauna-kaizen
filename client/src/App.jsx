@@ -556,6 +556,29 @@ function App() {
             <p className="text-white/30 text-sm mt-4">3ヶ月無料トライアル中も改善力スコアが算出されます</p>
           </div>
         </div>
+
+        {/* After signup flow */}
+        <div className="glass-dark border border-white/[0.06] rounded-3xl p-8 animate-fade-in-up-delay">
+          <h3 className="font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-lg">📋</span> Revvö導入後の掲載までの流れ
+          </h3>
+          <div className="space-y-5">
+            {[
+              { icon: "📲", title: "Revvöに登録・QRを設置", desc: "登録後、QRコードを施設内に貼るだけで利用開始できます。" },
+              { icon: "💬", title: "お客さんの声が届き始める", desc: "来店したお客さんがQRから匿名で投稿。声への対応を続けることでスコアが上がっていきます。" },
+              { icon: "📈", title: "改善力スコアが75を超えたら", desc: "スコアが認定基準（75点）を超えたタイミングで、タルコットサウナガイドへの掲載を申請できます。" },
+              { icon: "✉️", title: "掲載申請はこちらに連絡", desc: "スコアが基準を超えたら、Revvöの担当者までご連絡ください。確認後、順次掲載します。" },
+            ].map((item, i) => (
+              <div key={i} className="flex gap-4 items-start">
+                <span className="text-2xl shrink-0">{item.icon}</span>
+                <div>
+                  <p className="text-white font-semibold text-sm mb-0.5">{item.title}</p>
+                  <p className="text-white/40 text-sm">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </main>
     </DarkBg>
   );
