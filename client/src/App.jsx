@@ -117,7 +117,7 @@ function App() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <button onClick={() => setPage("landing")} className="flex items-center gap-2">
           <span className="text-2xl">🔥</span>
-          <span className="text-xl font-bold text-white tracking-tight">サウナ改善図鑑</span>
+          <span className="text-xl font-bold text-white tracking-tight">タルコットサウナガイド</span>
         </button>
         <div className="flex items-center gap-3">{children}</div>
       </div>
@@ -132,7 +132,7 @@ function App() {
       <nav className="relative z-10 max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="text-2xl">🔥</span>
-          <span className="text-xl font-bold text-white">サウナ改善図鑑</span>
+          <span className="text-xl font-bold text-white">タルコットサウナガイド</span>
         </div>
         <div className="flex items-center gap-4">
           <button onClick={() => setPage("apply")} className="text-sm text-white/50 hover:text-white transition-colors">施設の掲載申請</button>
@@ -146,16 +146,16 @@ function App() {
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/[0.03] border border-white/[0.06] rounded-full text-sm text-orange-300 mb-8 animate-fade-in-up">
             <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-            改善力認定サウナを厳選紹介
+            声に応える施設だけを掲載
           </div>
           <h1 className="text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-6 animate-fade-in-up">
-            お客さんの声に<br />
-            <span className="shimmer-text">応えるサウナ。</span>
+            居心地は、<br />
+            <span className="shimmer-text">声から始まる。</span>
           </h1>
           <p className="text-lg lg:text-xl text-white/60 leading-relaxed mb-10 max-w-xl animate-fade-in-up-delay">
             Google評価だけでは分からない。<br />
-            お客さんの声にどれだけ応えているか。<br />
-            独自の「改善力」指標で認定された、本当にいいサウナだけを紹介します。
+            お客さんの声に応え、一緒に進化する施設だけを紹介。<br />
+            独自の「改善力」指標で認定されたサウナガイドです。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up-delay-2">
             <button onClick={goCertified} className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-2xl text-lg hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 hover:-translate-y-0.5">
@@ -248,7 +248,7 @@ function App() {
         <div className="max-w-6xl mx-auto px-6 py-24 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">あなたのサウナも認定しませんか？</h2>
           <p className="text-white/50 text-lg mb-8 max-w-2xl mx-auto">
-            改善力認定を受けた施設は、サウナ改善図鑑に掲載されます。<br />
+            改善力認定を受けた施設は、タルコットサウナガイドに掲載されます。<br />
             お客さんの匿名フィードバックを集めて、改善力を可視化しましょう。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -264,7 +264,7 @@ function App() {
         <div className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-lg">🔥</span>
-            <span className="text-sm font-semibold text-white/60">サウナ改善図鑑</span>
+            <span className="text-sm font-semibold text-white/60">タルコットサウナガイド</span>
           </div>
           <p className="text-xs text-white/30">Powered by Revvö Analytics</p>
         </div>
@@ -373,7 +373,7 @@ function App() {
         {/* CTA for owners */}
         <div className="mt-16 text-center glass-dark border border-orange-500/20 rounded-3xl p-8 max-w-2xl mx-auto">
           <h3 className="text-xl font-bold text-white mb-2">あなたのサウナも掲載しませんか？</h3>
-          <p className="text-white/50 mb-4 text-sm">改善力認定を受けると、サウナ改善図鑑に無料で掲載されます。</p>
+          <p className="text-white/50 mb-4 text-sm">改善力認定を受けると、タルコットサウナガイドに無料で掲載されます。</p>
           <button onClick={() => setPage("apply")} className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-orange-500/25 transition-all">
             掲載を申請する →
           </button>
@@ -482,7 +482,7 @@ function App() {
             <p className="text-white/40 text-sm mb-2">施設オーナーの方へ</p>
             <h3 className="text-xl font-bold text-white mb-3">あなたの施設も改善力を可視化しませんか？</h3>
             <p className="text-white/50 text-sm mb-6 max-w-md mx-auto">
-              Revvöを導入すると、お客さんの匿名フィードバックが届き、改善力スコアが自動で算出されます。スコア75以上でサウナ改善図鑑に無料掲載。
+              Revvöを導入すると、お客さんの匿名フィードバックが届き、改善力スコアが自動で算出されます。スコア75以上でタルコットサウナガイドに無料掲載。
             </p>
             <a
               href="https://revvo-sooty.vercel.app/"
@@ -510,7 +510,7 @@ function App() {
       <main className="max-w-2xl mx-auto px-6 py-12">
         <div className="text-center mb-10 animate-fade-in-up">
           <h2 className="text-3xl font-bold text-white mb-2">掲載を申請する</h2>
-          <p className="text-white/50">改善力認定を受けて、サウナ改善図鑑に掲載されましょう</p>
+          <p className="text-white/50">改善力認定を受けて、タルコットサウナガイドに掲載されましょう</p>
         </div>
 
         <div className="glass-dark border border-white/[0.06] rounded-3xl p-8 mb-8 animate-fade-in-up-delay">
@@ -536,7 +536,7 @@ function App() {
             <h3 className="font-bold text-white mb-3">掲載のメリット</h3>
             <ul className="space-y-2">
               {[
-                "サウナ改善図鑑からの集客（サウナ好きユーザーに直接リーチ）",
+                "タルコットサウナガイドからの集客（サウナ好きユーザーに直接リーチ）",
                 "改善力認定バッジを店頭・SNSで使用可能",
                 "お客さんの本音が匿名で届き、サービス改善に直結",
                 "掲載料は無料（Revvö Standard ¥9,800/月のみ）",
