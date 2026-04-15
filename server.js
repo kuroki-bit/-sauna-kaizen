@@ -14,13 +14,27 @@ const saunas = JSON.parse(
   fs.readFileSync(path.join(__dirname, "data", "saunas.json"), "utf-8")
 );
 
+const PREFECTURE_AREAS = {
+  "東京都": ["新宿", "渋谷", "赤坂", "神田", "錦糸町", "後楽園", "両国", "下北沢", "代官山", "代々木上原", "麻布十番", "四谷三丁目", "大井町", "高輪"],
+  "神奈川県": ["横浜", "川崎", "相模原", "藤沢", "厚木", "小田原"],
+  "埼玉県": ["さいたま", "川越", "浦和", "大宮", "所沢", "越谷"],
+  "千葉県": ["千葉", "船橋", "柏", "松戸", "市川", "成田"],
+  "茨城県": ["水戸", "つくば", "土浦", "日立"],
+  "栃木県": ["宇都宮", "小山", "栃木", "那須塩原"],
+  "群馬県": ["前橋", "高崎", "太田", "伊勢崎"],
+};
+
 // Get all saunas (ranking)
 app.get("/api/saunas", (req, res) => {
   const { sort, area, tag } = req.query;
   let result = [...saunas];
 
   if (area && area !== "all") {
-    result = result.filter((s) => s.area === area);
+    if (PREFECTURE_AREAS[area]) {
+      result = result.filter((s) => PREFECTURE_AREAS[area].includes(s.area));
+    } else {
+      result = result.filter((s) => s.area === area);
+    }
   }
   if (tag) {
     result = result.filter((s) => s.tags.includes(tag));

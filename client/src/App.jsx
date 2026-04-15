@@ -1,7 +1,36 @@
 import { useState, useEffect } from "react";
 import "./index.css";
 
-const AREA_OPTIONS = ["all", "新宿", "渋谷", "赤坂", "神田", "錦糸町", "後楽園", "両国", "下北沢", "代官山", "代々木上原", "麻布十番", "四谷三丁目", "大井町", "高輪"];
+const AREA_GROUPS = [
+  {
+    label: "東京都",
+    options: ["新宿", "渋谷", "赤坂", "神田", "錦糸町", "後楽園", "両国", "下北沢", "代官山", "代々木上原", "麻布十番", "四谷三丁目", "大井町", "高輪"],
+  },
+  {
+    label: "神奈川県",
+    options: ["横浜", "川崎", "相模原", "藤沢", "厚木", "小田原"],
+  },
+  {
+    label: "埼玉県",
+    options: ["さいたま", "川越", "浦和", "大宮", "所沢", "越谷"],
+  },
+  {
+    label: "千葉県",
+    options: ["千葉", "船橋", "柏", "松戸", "市川", "成田"],
+  },
+  {
+    label: "茨城県",
+    options: ["水戸", "つくば", "土浦", "日立"],
+  },
+  {
+    label: "栃木県",
+    options: ["宇都宮", "小山", "栃木", "那須塩原"],
+  },
+  {
+    label: "群馬県",
+    options: ["前橋", "高崎", "太田", "伊勢崎"],
+  },
+];
 
 function App() {
   const [page, setPage] = useState("landing"); // landing | certified | detail | apply
@@ -227,7 +256,7 @@ function App() {
               掲載を申請する（無料）
             </button>
           </div>
-          <p className="text-white/30 text-sm mt-4">Revvo導入施設は自動的に改善力スコアが算出されます</p>
+          <p className="text-white/30 text-sm mt-4">Revvö導入施設は自動的に改善力スコアが算出されます</p>
         </div>
       </section>
 
@@ -237,7 +266,7 @@ function App() {
             <span className="text-lg">🔥</span>
             <span className="text-sm font-semibold text-white/60">サウナ改善図鑑</span>
           </div>
-          <p className="text-xs text-white/30">Powered by Revvo Analytics</p>
+          <p className="text-xs text-white/30">Powered by Revvö Analytics</p>
         </div>
       </footer>
     </DarkBg>
@@ -258,11 +287,25 @@ function App() {
           <p className="text-white/50">お客さんの声に真摯に向き合う、認定されたサウナだけを掲載</p>
         </div>
 
+        {/* Sample data notice */}
+        <div className="max-w-5xl mx-auto mb-8">
+          <div className="flex items-center gap-3 px-5 py-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-sm text-amber-300/80">
+            <span className="text-lg shrink-0">🔔</span>
+            <p>現在掲載中の施設はRevvö導入後のイメージです。実際の認定施設は順次掲載予定。掲載をご希望の施設オーナー様は<button onClick={() => setPage("apply")} className="underline underline-offset-2 hover:text-amber-200 transition-colors">こちら</button>からご確認ください。</p>
+          </div>
+        </div>
+
         {/* Filters */}
         <div className="flex flex-wrap gap-3 mb-8 justify-center animate-fade-in-up-delay">
           <select value={area} onChange={(e) => setArea(e.target.value)} className="text-sm px-4 py-2 rounded-full bg-white/[0.03] text-white/70 border border-white/[0.06] outline-none [color-scheme:dark]">
-            {AREA_OPTIONS.map((a) => (
-              <option key={a} value={a}>{a === "all" ? "全エリア" : a}</option>
+            <option value="all">全関東</option>
+            {AREA_GROUPS.map((group) => (
+              <optgroup key={group.label} label={group.label}>
+                <option value={group.label}>{group.label}（全域）</option>
+                {group.options.map((a) => (
+                  <option key={a} value={a}>{a}</option>
+                ))}
+              </optgroup>
             ))}
           </select>
         </div>
@@ -288,7 +331,10 @@ function App() {
 
                     {/* Name */}
                     <h3 className="font-bold text-white text-lg mb-1">{s.name}</h3>
-                    <p className="text-xs text-white/40 mb-3">{s.area}</p>
+                    <p className="text-xs text-white/40 mb-2">{s.area}</p>
+                    {s.tags.includes("Revvö導入中") && (
+                      <span className="inline-block text-[10px] px-2.5 py-1 bg-teal-500/15 border border-teal-500/30 text-teal-300 rounded-full font-bold mb-3">✦ Revvö導入中（イメージ）</span>
+                    )}
 
                     {/* Description */}
                     <p className="text-sm text-white/50 leading-relaxed mb-4 line-clamp-2">{s.description}</p>
@@ -369,6 +415,9 @@ function App() {
                   <span className="text-sm text-white/30">改善力認定</span>
                 </div>
                 <h1 className="text-2xl lg:text-3xl font-bold text-white mb-1">{s.name}</h1>
+                {s.tags.includes("Revvö導入中") && (
+                  <span className="inline-block text-xs px-3 py-1 bg-teal-500/15 border border-teal-500/30 text-teal-300 rounded-full font-bold mb-2">✦ Revvö導入中（イメージ）</span>
+                )}
                 <p className="text-sm text-white/40 mb-3">{s.area} ・ {s.address}</p>
                 <p className="text-white/50 leading-relaxed">{s.description}</p>
               </div>
@@ -427,6 +476,24 @@ function App() {
               ))}
             </div>
           </div>
+
+          {/* Owner CTA */}
+          <div className="glass-dark border border-orange-500/20 rounded-3xl p-8 text-center animate-fade-in-up">
+            <p className="text-white/40 text-sm mb-2">施設オーナーの方へ</p>
+            <h3 className="text-xl font-bold text-white mb-3">あなたの施設も改善力を可視化しませんか？</h3>
+            <p className="text-white/50 text-sm mb-6 max-w-md mx-auto">
+              Revvöを導入すると、お客さんの匿名フィードバックが届き、改善力スコアが自動で算出されます。スコア75以上でサウナ改善図鑑に無料掲載。
+            </p>
+            <a
+              href="https://revvo-sooty.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-2xl text-lg hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Revvöを3ヶ月無料で始める →
+            </a>
+            <p className="text-white/25 text-xs mt-4">トライアル期間中も改善力スコアが算出されます</p>
+          </div>
         </main>
       </DarkBg>
     );
@@ -450,7 +517,7 @@ function App() {
           {/* Steps */}
           <div className="space-y-8 mb-10">
             {[
-              { step: "01", title: "Revvoを導入", desc: "QRコードを設置するだけ。お客さんの匿名フィードバックが届きます。", color: "text-orange-400" },
+              { step: "01", title: "Revvöを導入", desc: "QRコードを設置するだけ。お客さんの匿名フィードバックが届きます。", color: "text-orange-400" },
               { step: "02", title: "改善力スコアが自動算出", desc: "フィードバックへの応答率・改善速度などから、AIが自動でスコアを算出。", color: "text-amber-400" },
               { step: "03", title: "認定基準を満たせば掲載", desc: "改善力スコア75以上で自動的に「改善力認定サウナ」として掲載されます。", color: "text-emerald-400" },
             ].map((s) => (
@@ -472,7 +539,7 @@ function App() {
                 "サウナ改善図鑑からの集客（サウナ好きユーザーに直接リーチ）",
                 "改善力認定バッジを店頭・SNSで使用可能",
                 "お客さんの本音が匿名で届き、サービス改善に直結",
-                "掲載料は無料（Revvo Standard ¥9,800/月のみ）",
+                "掲載料は無料（Revvö Standard ¥9,800/月のみ）",
               ].map((b, i) => (
                 <li key={i} className="text-sm text-white/60 flex items-start gap-2">
                   <span className="text-emerald-400 mt-0.5">&#x2713;</span>{b}
@@ -484,7 +551,7 @@ function App() {
           {/* CTA */}
           <div className="text-center">
             <a href="https://revvo-sooty.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-2xl text-lg hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 hover:-translate-y-0.5">
-              Revvo を3ヶ月無料で始める →
+              Revvö を3ヶ月無料で始める →
             </a>
             <p className="text-white/30 text-sm mt-4">3ヶ月無料トライアル中も改善力スコアが算出されます</p>
           </div>

@@ -1,5 +1,37 @@
 [
   {
+    "slug": "revvo-sauna-shinjuku",
+    "name": "Revvöサウナ（導入イメージ）",
+    "area": "新宿",
+    "address": "※ Revvö導入施設のサンプルです",
+    "googleScore": 4.6,
+    "googleReviews": 312,
+    "kaizenScore": 97,
+    "potentialScore": 98,
+    "tags": ["Revvö導入中", "サンプル"],
+    "description": "Revvöを活用し、お客さんの声をリアルタイムで改善に反映している施設のイメージです。開業からわずか6ヶ月でGOLD認定を達成。",
+    "strengths": ["お客さんの声を平均48時間以内に対応", "毎月の改善レポートをSNSで公開", "常連客のリクエストでメニューを随時更新"],
+    "improvements": [],
+    "voiceExamples": ["QRを読み込むだけで投稿できて、思ったよりずっと簡単だった", "匿名だから言いにくかったことも正直に書けた", "自分の意見が実際に改善に繋がったのがわかって嬉しかった"],
+    "kaizenDetails": { "responseRate": 98, "improvementSpeed": 97, "customerSatisfactionTrend": 96, "repeatRate": 97, "uniqueness": 95 }
+  },
+  {
+    "slug": "revvo-sauna-shibuya",
+    "name": "Revvöサウナ 銭湯タイプ（導入イメージ）",
+    "area": "渋谷",
+    "address": "※ Revvö導入施設のサンプルです",
+    "googleScore": 4.4,
+    "googleReviews": 187,
+    "kaizenScore": 88,
+    "potentialScore": 94,
+    "tags": ["Revvö導入中", "銭湯", "サンプル"],
+    "description": "Revvöを導入して3ヶ月の銭湯タイプ施設のイメージです。お客さんの声を改善に活かし、Google評価が4.1→4.4に上昇。常連率も1.4倍に増加。",
+    "strengths": ["導入後3ヶ月でGoogle評価が0.3ポイント上昇", "常連客の声でサウナ室の温度設定を最適化", "改善の経緯を掲示することで常連との信頼関係を構築"],
+    "improvements": [],
+    "voiceExamples": ["帰り際にサッとQRで投稿できるから続けられる", "スタッフに直接言いにくいことも気軽に送れて助かった", "改善前後の変化を貼り出してくれているのが嬉しい"],
+    "kaizenDetails": { "responseRate": 88, "improvementSpeed": 85, "customerSatisfactionTrend": 90, "repeatRate": 87, "uniqueness": 89 }
+  },
+  {
     "slug": "thermae-yu",
     "name": "テルマー湯",
     "area": "新宿",
